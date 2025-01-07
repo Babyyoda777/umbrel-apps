@@ -25,6 +25,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/entrypoint.sh:/entrypoint.sh
       - ${APP_DATA_DIR}/data/docker:/data
+      - ${UMBREL_ROOT}/data/storage/downloads:/downloads
 
   dockge:
     image: louislam/dockge:1.4.2@sha256:ec889251baff476366783bc4a092aaa08c601f377537a0f30fb922754edcd9b7
@@ -33,5 +34,6 @@ services:
       - ${APP_DATA_DIR}/data/docker:/var/run
       - ${APP_DATA_DIR}/data/dockge-data:/app/data
       - ${APP_DATA_DIR}/data/dockge-stacks:/opt/stacks
+      - ${UMBREL_ROOT}/data/storage/downloads:/downloads
     environment:
       DOCKGE_STACKS_DIR: /opt/stacks
